@@ -57,12 +57,12 @@ export default function Card(props) {
                     <div className={style.flipCardFront}>
                         <div className={style.imageBox}>
                             <div className={style.imageElement}> {props.children} </div>
-                            {props.image ? <img className={style.image} src={`${publicRuntimeConfig.basePath}/images/question.png`} /> : <></>}
+                            <img className={style.image} src={`${publicRuntimeConfig.basePath}/images/question.png`} />
                         </div>
                     </div>
                     <div className={style.flipCardBack}>
                         <div className={style.imageBox}>
-                            {props.image ? <img className={style.image} src={`${publicRuntimeConfig.basePath}/images/question.png`} /> : <></>}
+                            <img className={style.image} src={`${publicRuntimeConfig.basePath}/images/question.png`} />
                         </div>
                     </div>
                 </div>
