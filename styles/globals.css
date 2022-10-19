@@ -25,7 +25,6 @@ a {
 
 @media all {
     body {
-        background: white;
         overflow-block: hidden;
         overflow-inline: hidden;
     }
