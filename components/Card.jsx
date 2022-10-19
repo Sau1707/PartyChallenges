@@ -40,7 +40,7 @@ export default function Card(props) {
             <div className={style.cardBox}>
                 <div className={`${style.impodeBall} ${ explosion ? style.explode : null}`}></div>
                 <Challenge
-                    image="/images/languages.png"
+                    image={`${process.env.BASE_PATH}/images/languages.png`}
                     type={type}
                     desc={challenge}
                 /> 
