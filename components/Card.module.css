@@ -1,6 +1,7 @@
 .cardBox {
     width: 128mm;
-    height: 178mm;
+    max-width: 100%;
+    aspect-ratio: 128/178;
     cursor: pointer;
     background-color: transparent;
     position: absolute;

@@ -1,5 +1,5 @@
 import Card from '../components/Card'
-
+import Head from 'next/head'
 /* Load data */
 import team from "../challenges/team.json"
 import drink from "../challenges/drink.json"
@@ -15,7 +15,13 @@ export async function getStaticProps(context) {
 
 export default function Home(props) {
     return (
+        <>
+        <Head>
+            <meta name="viewport" content="width=device-width, user-scalable=no" />
+        </Head>
         <Card data={props} />
+        </>
+        
     )
 
 }
