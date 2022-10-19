@@ -15,11 +15,7 @@ export async function getStaticProps(context) {
 
 export default function Home(props) {
     return (
-        <Card
-            href="challenges"
-            image="/images/question.png"
-            data={props}
-        />
+        <Card data={props} />
     )
 
 }

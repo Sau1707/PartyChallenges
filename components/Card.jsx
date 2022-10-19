@@ -1,11 +1,13 @@
 import style from "./Card.module.css"
 import Challenge from "./Challenge";
+import getConfig from 'next/config'
 import { useState } from "react";
 
 const types = ["team", "drink", "language", "selfie", "time"]
 const develop = false
 export default function Card(props) {
-    
+
+    const { publicRuntimeConfig } = getConfig()
     const [animation, setAnimation] = useState(develop)
     const [explosion, setExplosion] = useState(develop)
     const [showCard, setShowCard] = useState(develop)
@@ -40,7 +42,6 @@ export default function Card(props) {
             <div className={style.cardBox}>
                 <div className={`${style.impodeBall} ${ explosion ? style.explode : null}`}></div>
                 <Challenge
-                    image={`${process.env.BASE_PATH}/images/languages.png`}
                     type={type}
                     desc={challenge}
                 /> 
@@ -56,12 +57,12 @@ export default function Card(props) {
                     <div className={style.flipCardFront}>
                         <div className={style.imageBox}>
                             <div className={style.imageElement}> {props.children} </div>
-                            {props.image ? <img className={style.image} src={props.image} /> : <></>}
+                            {props.image ? <img className={style.image} src={`${publicRuntimeConfig.basePath}/images/question.png`} /> : <></>}
                         </div>
                     </div>
                     <div className={style.flipCardBack}>
                         <div className={style.imageBox}>
-                            {props.image ? <img className={style.image} src={props.image} /> : <></>}
+                            {props.image ? <img className={style.image} src={`${publicRuntimeConfig.basePath}/images/question.png`} /> : <></>}
                         </div>
                     </div>
                 </div>

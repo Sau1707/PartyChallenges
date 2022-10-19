@@ -1,4 +1,5 @@
 import style from "./Challenge.module.css"
+import getConfig from 'next/config'
 import { useState } from "react";
 
 const types = ["team", "drink", "language", "selfie", "time"]
@@ -12,6 +13,7 @@ const images = {
 
 const capitalize = (el) => el.charAt(0).toUpperCase() + el.slice(1)
 export default function Challenge(props) {
+    const { publicRuntimeConfig } = getConfig()
     const [flip, setFlip] = useState(false)
 
     const flipCard = () => {
@@ -24,7 +26,7 @@ export default function Challenge(props) {
                 <div style={{transform: flip ? "rotateY(180deg)" : ""}} className={style.flipCardInner}>
                     <div className={style.flipCardFront}>
                         <div className={style.imageBox}>
-                            <img className={style.image} src={`${process.env.BASE_PATH}${images[props.type]}`} />
+                            <img className={style.image} src={`${publicRuntimeConfig.basePath}${images[props.type]}`} />
                         </div>
                     </div>
                     <div className={style.flipCardBack}>
@@ -34,7 +36,7 @@ export default function Challenge(props) {
                             <hr style={{width: "30%", borderTop: "2px solid white", marginTop: "10%", marginBottom: "10%"}}/>
                             <h2> {props.desc }</h2>
                             </div>
-                            <img style={{ filter: "blur(0px) brightness(0.4)" }} className={style.image} src={`${process.env.BASE_PATH}${images[props.type]}`} />
+                            <img style={{ filter: "blur(0px) brightness(0.4)" }} className={style.image} src={`${publicRuntimeConfig.basePath}${images[props.type]}`} />
                         </div>
                     </div>
                 </div>
