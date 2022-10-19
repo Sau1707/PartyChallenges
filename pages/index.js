@@ -1,22 +1,25 @@
-import Link from 'next/link'
+import Card from '../components/Card'
 
-import Center from "../components/Center"
-import VerticalSpace from "../components/VerticalSpace"
+/* Load data */
+import team from "../challenges/team.json"
+import drink from "../challenges/drink.json"
+import language from "../challenges/language.json"
+import selfie from "../challenges/selfie.json"
+import time from "../challenges/time.json"
 
-export default function Home() {
+export async function getStaticProps(context) {
+    return {
+        props: { team, drink, language, selfie, time },
+    }
+}
+
+export default function Home(props) {
     return (
-        <>
-            <VerticalSpace space={200} />
-            <Center>
-                <h1 > Welcome to party challenges </h1>
-            </Center>
-            <VerticalSpace space={200} />
-            <Center>
-                <Link href="/challenge">
-                    <button> Click to generate a challenge </button>
-                </Link>
-            </Center>
-        </>
+        <Card
+            href="challenges"
+            image="/images/question.png"
+            data={props}
+        />
     )
 
 }

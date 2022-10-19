@@ -1,0 +1,146 @@
+.cardBox {
+    width: 128mm;
+    height: 178mm;
+    cursor: pointer;
+    background-color: transparent;
+    position: absolute;
+    perspective: 1000px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flipCardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid white;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.flipCardFront,
+.flipCardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.imageBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.imageElement {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+
+/* handle exposion animation */
+.explodeBall {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+}
+
+.explode {
+    width: 5000px;
+    height: 5000px;
+    background-color: aliceblue;
+    border-radius: 100%;
+    transition: width 4s ease-in, height 4s ease-in;
+    z-index: 10;
+    box-shadow: 0 0 20px  rgb(255, 255, 255),
+                0 0 60px  rgb(230, 230, 230),
+                0 0 80px  rgb(160, 160, 160),
+                0 0 100px rgb(120, 120, 120),
+                0 0 150px rgb(100, 100, 100),
+                0 0 200px rgb(60, 60, 60),
+                0 0 300px rgb(20, 20, 20);
+}
+
+.impodeBall {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+}
+
+/* quick spinn */
+.spinning {
+    animation-name: spinningWheel;
+    -webkit-animation-name: spinningWheel;
+    -moz-animation-name: spinningWheel;
+
+    animation-timing-function: cubic-bezier(.8,-0.01,.56,1.04); /* ease-in-out is slow at the beginning and the end */
+    -webkit-animation-timing-function: cubic-bezier(.8,-0.01,.56,1.04);
+    -moz-animation-timing-function: cubic-bezier(.8,-0.01,.56,1.04);
+
+    animation-duration: 10s; /* One iteration of this animation will take 5s */
+    -webkit-animation-duration: 10s;
+    -moz-animation-duration: 10s; 
+}
+
+@keyframes spinningWheel{
+    from {transform: rotateY(0deg);}
+    to {transform: rotateY(3600deg);}
+}    
+/* Chrome, Safari, Opera */
+@-webkit-keyframes spinningWheel{
+    from {-webkit-transform: rotateY(0deg);}
+    to {-webkit-transform: rotateY(3600deg);}
+}
+/* Firefox */
+@-moz-keyframes spinningWheel{
+    from {-moz-transform: rotateY(0deg);}
+    to {-moz-transform: rotateY(3600deg);}
+}
+
+
+/* Question card */
+.questionCard {
+    width: 128mm;
+    height: 178mm;
+    cursor: pointer;
+    background-color: transparent;
+    position: absolute;
+    perspective: 1000px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
+
+

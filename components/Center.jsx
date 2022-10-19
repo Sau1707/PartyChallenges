@@ -1,6 +1,6 @@
 export default function Center(props) {
     return (
-        <div style={{ textAlign: "center" }}>
+        <div style={{ width: "fit-content", margin: "auto", textAlign: "center" }}>
             {props.children}
         </div>
     )
