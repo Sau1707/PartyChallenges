@@ -6,7 +6,9 @@ import drink from "../challenges/drink.json"
 import language from "../challenges/language.json"
 import selfie from "../challenges/selfie.json"
 import time from "../challenges/time.json"
+/* BAckgorund particle */
 
+import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
@@ -16,80 +18,81 @@ export async function getStaticProps(context) {
     }
 }
 
-const particlesOprions = {
-    background: {
-        color: {
-            value: "white",
-        },
-    },
-    fpsLimit: 120,
-    particles: {
-        color: {
-            value: "white",
-        },
-        links: {
-            color: "white",
-            distance: 150,
-            enable: true,
-            opacity: 0.5,
-            width: 1,
-        },
-        collisions: {
-            enable: true,
-        },
-        move: {
-            direction: "none",
-            enable: true,
-            outModes: {
-                default: "bounce",
-            },
-            random: false,
-            speed: 1,
-            straight: false,
-        },
-        number: {
-            density: {
-                enable: true,
-                area: 800,
-            },
-            value: 80,
-        },
-        opacity: {
-            value: 0.5,
-        },
-        shape: {
-            type: "circle",
-        },
-        size: {
-            value: { min: 1, max: 5 },
-        },
-    },
-    detectRetina: true,
-    fullScreen: { enable: false }
-}
+export default function App(props) {
+  const particlesInit = useCallback(async (engine) => {
+    console.log(engine);
+    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+    // starting from v2 you can add only the features you need reducing the bundle size
+    await loadFull(engine);
+  }, []);
 
-export default function Home(props) {
-    const particlesInit = async (main) => {
-        console.log("here")
-        await loadFull(main);
-    };
+  const particlesLoaded = useCallback(async (container) => {
+    await console.log(container);
+  }, []);
 
-    return (
-        <>
+  return (
+    <>
         <Head>
             <meta name="viewport" content="width=device-width, user-scalable=no" />
         </Head>
-        <div style={{position: "absolute", width: "100%", height: "100%"}}>
-            <Particles
-            style={{position: "absolute", width: "100%", height: "100%"}}
-                id="tsparticles"
-                init={particlesInit}
-                options={particlesOprions}
-            />
-        </div>
-        </>
-        
-    )
-}
 
-//         <Card data={props} />
+        <Particles
+          id="tsparticles"
+          init={particlesInit}
+          loaded={particlesLoaded}
+          options={{
+            background: {
+              color: {
+                value: "#000",
+              },
+            },
+            fpsLimit: 120,
+            particles: {
+              color: {
+                value: "#ffffff",
+              },
+              links: {
+                color: "#ffffff",
+                distance: 150,
+                enable: true,
+                opacity: 0.5,
+                width: 1,
+              },
+              collisions: {
+                enable: true,
+              },
+              move: {
+                directions: "none",
+                enable: true,
+                outModes: {
+                  default: "bounce",
+                },
+                random: false,
+                speed: 1,
+                straight: false,
+              },
+              number: {
+                density: {
+                  enable: true,
+                  area: 800,
+                },
+                value: 80,
+              },
+              opacity: {
+                value: 0.5,
+              },
+              shape: {
+                type: "circle",
+              },
+              size: {
+                value: { min: 1, max: 5 },
+              },
+            },
+            detectRetina: true,
+          }}
+        />
+        <Card data={props} />
+        </>
+  );
+};
