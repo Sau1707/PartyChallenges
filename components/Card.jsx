@@ -8,6 +8,8 @@ const develop = false
 export default function Card(props) {
 
     const { publicRuntimeConfig } = getConfig()
+    const basePath = publicRuntimeConfig.basePath ? publicRuntimeConfig.basePath : ""
+    console.log(basePath)
     const [animation, setAnimation] = useState(develop)
     const [explosion, setExplosion] = useState(develop)
     const [showCard, setShowCard] = useState(develop)
@@ -40,7 +42,9 @@ export default function Card(props) {
         let {type, challenge} = generateRandomChallenge()
         return (
             <div className={style.cardBox}>
-                <div className={`${style.impodeBall} ${ explosion ? style.explode : null}`}></div>
+                <div className={`${style.explodeBall}`}>
+                    <div className={`${ explosion ? style.implode : null}`}></div>
+                </div>
                 <Challenge
                     type={type}
                     desc={challenge}
@@ -51,18 +55,20 @@ export default function Card(props) {
 
     return (
         <div className={style.cardBox} onClick={selectCard}>
-            <div className={`${style.explodeBall} ${ explosion ? style.explode : null}`}></div>
+            <div className={`${style.explodeBall}`}>
+                <div className={`${ explosion ? style.explode : null}`}></div>
+            </div>
             <div style={{width: "100%", height: "100%"}} className={`${animation ? style.spinning : "" }`} >
                 <div className={style.flipCardInner}>
                     <div className={style.flipCardFront}>
                         <div className={style.imageBox}>
                             <div className={style.imageElement}> {props.children} </div>
-                            <img className={style.image} src={`${publicRuntimeConfig.basePath}/images/question.png`} />
+                            <img className={style.image} src={`${basePath}/images/question.png`} />
                         </div>
                     </div>
                     <div className={style.flipCardBack}>
                         <div className={style.imageBox}>
-                            <img className={style.image} src={`${publicRuntimeConfig.basePath}/images/question.png`} />
+                            <img className={style.image} src={`${basePath}/images/question.png`} />
                         </div>
                     </div>
                 </div>
