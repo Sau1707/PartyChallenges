@@ -70,8 +70,8 @@
 }
 
 .explode {
-    width: 5000px;
-    height: 5000px;
+    width: 1000px;
+    height: 1000px;
     background-color: aliceblue;
     border-radius: 100%;
     transition: width 4s ease-in, height 4s ease-in;
