@@ -1,4 +1,4 @@
-import style from "./Card.module.css"
+import style from "./Card.module.scss"
 import Challenge from "./Challenge";
 import getConfig from 'next/config'
 import { useState } from "react";

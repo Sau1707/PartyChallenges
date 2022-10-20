@@ -87,17 +87,8 @@
                 0 0 200px rgb(60, 60, 60),
                 0 0 300px rgb(20, 20, 20);
     animation-name: explosionAnimation;
-    -webkit-animation-name: explosionAnimation;
-    -moz-animation-name: explosionAnimation;
-
     animation-timing-function: cubic-bezier(.8,-0.01,.56,1.04); /* ease-in-out is slow at the beginning and the end */
-    -webkit-animation-timing-function: cubic-bezier(.8,-0.01,.56,1.04);
-    -moz-animation-timing-function: cubic-bezier(.8,-0.01,.56,1.04);
-
     animation-duration: 3s; /* One iteration of this animation will take 5s */
-    -webkit-animation-duration: 3s;
-    -moz-animation-duration: 3s; 
-
     transform-origin: center
 }
 
@@ -105,16 +96,6 @@
     from {transform: scale(0);}
     to {transform: scale(20);}
 }    
-/* Chrome, Safari, Opera */
-@-webkit-keyframes explosionAnimation{
-    from {-webkit-transform: scale(0)}
-    to {-webkit-transform: scale(20)}
-}
-/* Firefox */
-@-moz-keyframes explosionAnimation{
-    from {-moz-transform: scale(0)}
-    to {-moz-transform: scale(20)}
-}
 
 .implode {
     position: relative;
@@ -131,17 +112,8 @@
                 0 0 200px rgb(60, 60, 60),
                 0 0 300px rgb(20, 20, 20);
     animation-name: implodeAnimation;
-    -webkit-animation-name: implodeAnimation;
-    -moz-animation-name: implodeAnimation;
-
     animation-timing-function: linear; /* ease-in-out is slow at the beginning and the end */
-    -webkit-animation-timing-function: linear;
-    -moz-animation-timing-function: linear;
-
     animation-duration: 1s; /* One iteration of this animation will take 5s */
-    -webkit-animation-duration: 1s;
-    -moz-animation-duration: 1s; 
-
     transform-origin: center;
     transform: scale(0);
 }
@@ -150,47 +122,18 @@
     from {transform: scale(20);}
     to {transform: scale(0);}
 }    
-/* Chrome, Safari, Opera */
-@-webkit-keyframes explosionAnimation{
-    from {-webkit-transform: scale(20)}
-    to {-webkit-transform: scale(0)}
-}
-/* Firefox */
-@-moz-keyframes explosionAnimation{
-    from {-moz-transform: scale(20)}
-    to {-moz-transform: scale(0)}
-}
 
 /* quick spinn */
 .spinning {
     animation-name: spinningWheel;
-    -webkit-animation-name: spinningWheel;
-    -moz-animation-name: spinningWheel;
-
-    animation-timing-function: cubic-bezier(.8,-0.01,.56,1.04); /* ease-in-out is slow at the beginning and the end */
-    -webkit-animation-timing-function: cubic-bezier(.8,-0.01,.56,1.04);
-    -moz-animation-timing-function: cubic-bezier(.8,-0.01,.56,1.04);
-
-    animation-duration: 10s; /* One iteration of this animation will take 5s */
-    -webkit-animation-duration: 10s;
-    -moz-animation-duration: 10s; 
+    animation-timing-function: cubic-bezier(.8,-0.01,.56,1.04);
+    animation-duration: 10s; 
 }
 
 @keyframes spinningWheel{
     from {transform: rotateY(0deg);}
     to {transform: rotateY(3600deg);}
 }    
-/* Chrome, Safari, Opera */
-@-webkit-keyframes spinningWheel{
-    from {-webkit-transform: rotateY(0deg);}
-    to {-webkit-transform: rotateY(3600deg);}
-}
-/* Firefox */
-@-moz-keyframes spinningWheel{
-    from {-moz-transform: rotateY(0deg);}
-    to {-moz-transform: rotateY(3600deg);}
-}
-
 
 /* Question card */
 .questionCard {
