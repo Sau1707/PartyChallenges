@@ -6,12 +6,11 @@ import { useState } from "react";
 
 
 const types = ["team", "drink", "language", "selfie", "time"]
-const develop = false
+const develop = true
 
 export default function Card(props) {
     const { publicRuntimeConfig } = getConfig()
     const basePath = publicRuntimeConfig.basePath ? publicRuntimeConfig.basePath : ""
-    console.log(basePath)
     const [animation, setAnimation] = useState(develop)
     const [explosion, setExplosion] = useState(develop)
     const [showCard, setShowCard] = useState(develop)
@@ -33,10 +32,9 @@ export default function Card(props) {
     const generateRandomChallenge = () => {
         let type = getRandomElement(types)
         let challenge = getRandomElement(props.data[type])
-        console.log(challenge)
         return {
             type: type,
-            challenge: process.env.NODE_ENV == "development" ? props.data["team"][0] : challenge
+            challenge: challenge
         }
     }
 
