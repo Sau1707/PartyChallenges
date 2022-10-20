@@ -3,10 +3,12 @@ import Challenge from "./Challenge";
 import getConfig from 'next/config'
 import { useState } from "react";
 
+
+
 const types = ["team", "drink", "language", "selfie", "time"]
 const develop = false
-export default function Card(props) {
 
+export default function Card(props) {
     const { publicRuntimeConfig } = getConfig()
     const basePath = publicRuntimeConfig.basePath ? publicRuntimeConfig.basePath : ""
     console.log(basePath)
