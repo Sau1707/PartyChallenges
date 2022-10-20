@@ -6,7 +6,7 @@ import { useState } from "react";
 
 
 const types = ["team", "drink", "language", "selfie", "time"]
-const develop = false
+const develop = true
 
 export default function Card(props) {
     const { publicRuntimeConfig } = getConfig()
