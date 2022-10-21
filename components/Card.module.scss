@@ -88,7 +88,7 @@
                 0 0 300px rgb(20, 20, 20);
     animation-name: explosionAnimation;
     animation-timing-function: cubic-bezier(.8,-0.01,.56,1.04); /* ease-in-out is slow at the beginning and the end */
-    animation-duration: 3s; /* One iteration of this animation will take 5s */
+    animation-duration: 1s; /* One iteration of this animation will take 5s */
     transform-origin: center
 }
 
@@ -127,7 +127,7 @@
 .spinning {
     animation-name: spinningWheel;
     animation-timing-function: cubic-bezier(.8,-0.01,.56,1.04);
-    animation-duration: 10s; 
+    animation-duration: 7s; 
 }
 
 @keyframes spinningWheel{

@@ -3,9 +3,6 @@ import Challenge from "./Challenge";
 import getConfig from 'next/config'
 import { useState } from "react";
 
-
-
-const types = ["team", "drink", "language", "selfie", "time"]
 const develop = false
 
 export default function Card(props) {
@@ -20,35 +17,26 @@ export default function Card(props) {
 
         setTimeout(() => {
             setExplosion(true)
-        }, 6500)
+        }, 4000)
 
         setTimeout(() => {
             setShowCard(true)
-        }, 9500)
+        }, 4900)
     }
 
-    const getRandomElement = (arr) => arr[Math.floor(Math.random()*arr.length)]
-
-    const generateRandomChallenge = () => {
-        let type = getRandomElement(types)
-        let challenge = getRandomElement(props.data[type])
-        return {
-            type: type,
-            challenge: challenge
-        }
-    }
+    const getRandomElement = (arr) => arr[Math.floor(Math.random() * arr.length)]
 
     if (showCard) {
-        let {type, challenge} = generateRandomChallenge()
+        let { type, challenge } = getRandomElement(props.data)
         return (
             <div className={style.cardBox}>
                 <div className={`${style.explodeBall}`}>
-                    <div className={`${ explosion ? style.implode : null}`}></div>
+                    <div className={`${explosion ? style.implode : null}`}></div>
                 </div>
                 <Challenge
                     type={type}
                     desc={challenge}
-                /> 
+                />
             </div>
         )
     }
@@ -56,9 +44,9 @@ export default function Card(props) {
     return (
         <div className={style.cardBox} onClick={selectCard}>
             <div className={`${style.explodeBall}`}>
-                <div className={`${ explosion ? style.explode : null}`}></div>
+                <div className={`${explosion ? style.explode : null}`}></div>
             </div>
-            <div style={{width: "100%", height: "100%"}} className={`${animation ? style.spinning : "" }`} >
+            <div style={{ width: "100%", height: "100%" }} className={`${animation ? style.spinning : ""}`} >
                 <div className={style.flipCardInner}>
                     <div className={style.flipCardFront}>
                         <div className={style.imageBox}>
@@ -74,7 +62,5 @@ export default function Card(props) {
                 </div>
             </div>
         </div>
-
-
     );
 }
